@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Publishing your book with GitHub Pages</title>
+  <meta name="description" content="# Publishing your book with GitHub PagesGitHub pages is a [free service that GitHub provides](https://pages.github.com/) to let you host website contentusing...">
+
+  <link rel="canonical" href="https://jupyterbook.org/hide/guide/publish/github-pages.html">
+  <link rel="alternate" type="application/rss+xml" title="CSCI 7000 - Advances in Artificial Intelligence and Neuroscience" href="https://jupyterbook.org/feed.xml">
+
+  <meta property="og:url"         content="https://jupyterbook.org/hide/guide/publish/github-pages.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Publishing your book with GitHub Pages" />
+<meta property="og:description" content="# Publishing your book with GitHub PagesGitHub pages is a [free service that GitHub provides](https://pages.github.com/) to let you host website contentusing..." />
+<meta property="og:image"       content="https://jupyterbook.org/images/brain_ai_logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://jupyterbook.org/hide/guide/publish/github-pages.html",
+  "headline": "Publishing your book with GitHub Pages",
+  "datePublished": "2019-12-27T11:40:15+08:00",
+  "dateModified": "2019-12-27T11:40:15+08:00",
+  "description": "# Publishing your book with GitHub PagesGitHub pages is a [free service that GitHub provides](https://pages.github.com/) to let you host website contentusing...",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Yeh"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jupyterbook.org",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://jupyterbook.org",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52617120-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-52617120-7');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "jupyter/jupyter-book",
+    ref: "gh-pages",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="/"><img src="/images/brain_ai_logo.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">CSCI 7000 - Advances in Artificial Intelligence and Neuroscience</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+        <li><h2 class="c-sidebar__title">Course</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/home">
+        <a class="c-sidebar__entry"
+          href="/home.html"
+        >
+          
+          Home
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/course/syllabus">
+        <a class="c-sidebar__entry"
+          href="/course/syllabus.html"
+        >
+          
+          Syllabus
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/course/instructors">
+        <a class="c-sidebar__entry"
+          href="/course/instructors.html"
+        >
+          
+          Instructors
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/course/schedule">
+        <a class="c-sidebar__entry"
+          href="/course/schedule.html"
+        >
+          
+          Schedule
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+        <li><h2 class="c-sidebar__title">Units</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/intro">
+        <a class="c-sidebar__entry"
+          href="/units/intro.html"
+        >
+          
+            1.
+          
+          Introduction
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/labs/lab-Jupyter_tour/index">
+              <a class="c-sidebar__entry"
+                href="/labs/lab-Jupyter_tour/index.html"
+              >
+                
+                Lab - Jupyter notebook tour
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/labs/lab-Personal_introduction/index">
+              <a class="c-sidebar__entry"
+                href="/labs/lab-Personal_introduction/index.html"
+              >
+                
+                Lab - About Me
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fmri-basics">
+        <a class="c-sidebar__entry"
+          href="/units/fmri-basics.html"
+        >
+          
+            2.
+          
+          fMRI Basics
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fmri-analysis">
+        <a class="c-sidebar__entry"
+          href="/units/fmri-analysis.html"
+        >
+          
+            3.
+          
+          fMRI Analysis
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/machine-learning">
+        <a class="c-sidebar__entry"
+          href="/units/machine-learning.html"
+        >
+          
+            4.
+          
+          Machine Learning
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fmri-machine-learning">
+        <a class="c-sidebar__entry"
+          href="/units/fmri-machine-learning.html"
+        >
+          
+            5.
+          
+          fMRI and Machine Learning
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fnirs-basics">
+        <a class="c-sidebar__entry"
+          href="/units/fnirs-basics.html"
+        >
+          
+            6.
+          
+          fNIRS Basics
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fnirs-analysis">
+        <a class="c-sidebar__entry"
+          href="/units/fnirs-analysis.html"
+        >
+          
+            7.
+          
+          fNIRS Analysis
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/units/fnirs-machine-learning">
+        <a class="c-sidebar__entry"
+          href="/units/fnirs-machine-learning.html"
+        >
+          
+            8.
+          
+          fNIRS and Machine Learning
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <h1 id="publishing-your-book-with-github-pages">Publishing your book with GitHub Pages</h1>
+
+<p>GitHub pages is a <a href="https://pages.github.com/">free service that GitHub provides</a> to let you host website content
+using your GitHub repositories.</p>
+
+<p>Once you’ve built the intermediate files for your book (in <code class="language-plaintext highlighter-rouge">_build</code>) or built the HTML
+for your book (in <code class="language-plaintext highlighter-rouge">_site</code>), you can push your book contents to GitHub so that
+others can access your book.</p>
+
+<p><strong>Prerequisites</strong></p>
+
+<ul>
+  <li>
+    <p><strong>If you are building your book’s HTML manually</strong></p>
+
+    <p>We assume that you have already <a href="book-html.html">built your book’s HTML</a> and that
+your HTML content is in the <code class="language-plaintext highlighter-rouge">_site/</code> folder. We also assume that you have a
+<a href="../03_build.html#Create-an-online-repository-for-your-book">GitHub repository created for your book</a>.</p>
+  </li>
+  <li>
+    <p><strong>If you are using GitHub-page’s Jekyll builder</strong></p>
+
+    <p>We assume that you have a
+<a href="../03_build.html#Create-an-online-repository-for-your-book">GitHub repository created for your book</a>.
+We also assume that your book’s template and content have been pushed to
+your GitHub repository.</p>
+  </li>
+</ul>
+
+<h2 id="publish-your-books-html-manually-to-github-pages">Publish your book’s HTML manually to GitHub-pages</h2>
+
+<p>You can manually publish HTML to GitHub-pages so that it will serve a website
+for you. To do so, we’ll need to push the HTML for our book to a branch, tell GitHub-pages
+that this branch contains raw HTML (not a Jekyll template), and then activate
+GitHub-pages on the repository. To do this, follow these steps:</p>
+
+<ol>
+  <li>Confirm that your book’s HTML is built. You should see a
+collection of HTML files/folders in the <code class="language-plaintext highlighter-rouge">_site</code> folder.</li>
+  <li>
+    <p>Install the <code class="language-plaintext highlighter-rouge">ghp-import</code> tool. This is a command-line tool for
+quickly pushing some built HTML to a GitHub-pages branch.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>ghp-import
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">ghp-import</code> to push your book’s HTML onto the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch of your repository.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ghp-import <span class="nt">-n</span> <span class="nt">-p</span> <span class="nt">-f</span> _site
+</code></pre></div>    </div>
+
+    <p>The <code class="language-plaintext highlighter-rouge">-n</code> adds a <code class="language-plaintext highlighter-rouge">.nojekyll</code> file to your book’s built HTML, and the <code class="language-plaintext highlighter-rouge">-p</code> and <code class="language-plaintext highlighter-rouge">-f</code> tell
+<code class="language-plaintext highlighter-rouge">ghp-import</code> to push the contents of <code class="language-plaintext highlighter-rouge">_site/</code> to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch. Run <code class="language-plaintext highlighter-rouge">ghp-import -h</code>
+to see more configuration options for this tool.</p>
+  </li>
+  <li>Confirm that your <code class="language-plaintext highlighter-rouge">gh-pages</code> branch has newly-pushed HTML for your book. You should see
+a <code class="language-plaintext highlighter-rouge">.nojekyll</code> file as well as the contents of <code class="language-plaintext highlighter-rouge">_site/</code> in the <strong>root</strong> of your <code class="language-plaintext highlighter-rouge">gh-pages</code> branch.</li>
+  <li>
+    <p>Enable GitHub site building for your repository.</p>
+
+    <p>From your GitHub repository, click <code class="language-plaintext highlighter-rouge">Settings</code> then scroll down to the
+<code class="language-plaintext highlighter-rouge">GitHub Pages</code> section. You should see the message <code class="language-plaintext highlighter-rouge">Your site is published at &lt;YOUR-URL&gt;</code>.
+Ensure that you’re building from the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch.</p>
+  </li>
+  <li>Go to the URL listed at <code class="language-plaintext highlighter-rouge">&lt;YOUR-URL&gt;</code> and you should see your live site.</li>
+</ol>
+
+<h2 id="automatically-build-your-books-html-with-the-github-pages-jekyll-builder">Automatically build your book’s HTML with the GitHub Pages Jekyll builder</h2>
+
+<p>You’ll need to activate GitHub-pages on your repository in order to tell GitHub
+to host a website from the repository’s contents.
+To do so, follow these steps:</p>
+
+<ol>
+  <li>Confirm that each page’s HTML is built. You should see a
+collection of HTML files/folders in the <code class="language-plaintext highlighter-rouge">_build</code> folder.</li>
+  <li>Commit and push the changes to your repository.</li>
+  <li>
+    <p>Enable GitHub site building for your repository.</p>
+
+    <p>From your GitHub repository, click <code class="language-plaintext highlighter-rouge">Settings</code> then scroll down to the
+<code class="language-plaintext highlighter-rouge">GitHub Pages</code> section. You should see the message <code class="language-plaintext highlighter-rouge">Your site is published at &lt;YOUR-URL&gt;</code>.
+Ensure that you’re building from the correct folder.</p>
+  </li>
+  <li>Go to the URL listed at <code class="language-plaintext highlighter-rouge">&lt;YOUR-URL&gt;</code> and you should see your live site.</li>
+</ol>
+
+<p>That should be all that is needed for GitHub Pages to automatically build
+and publish your site. Any time you push changes to the <code class="language-plaintext highlighter-rouge">_build/</code> folder
+(by running <code class="language-plaintext highlighter-rouge">jupyter-book build</code> locally and pushing the changes to GitHub),
+your book content will update.</p>
+
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
