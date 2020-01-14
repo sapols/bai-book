@@ -39,6 +39,9 @@
   - url: /papers/davidson-2003/index
     title: Paper - Imaging the developing brain with fMRI
     not_numbered: true
+  - url: /videos/principles-of-fMRI/1-introduction-to-fMRI/index
+    title: Video - Introduction to fMRI
+    not_numbered: true    
   - url: /labs/lab-Jupyter_tour/index
     not_numbered: true
   - url: /labs/lab-Personal_introduction/index
