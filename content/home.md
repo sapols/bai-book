@@ -4,9 +4,12 @@ This course explores the recent advances in the intersection of artificial intel
 
 ## Acknowledgements
 
-Many of the materials for this course, including lectures and labs, are based on the works of the following individuals and projects, with additions and improvements by Tom Yeh for education purposes.
+Many of the materials for this course, including lectures and labs, are based on the works of the following individuals, projects, tutorials, and textbooks, with additions and improvements by Tom Yeh for education purposes.
 
 * [Pilyoung Kim](https://www.du.edu/ahss/psychology/fcnlab/)
+* [Tor Wager](https://pbs.dartmouth.edu/people/tor-wager)
 * [Luke Chang](http://lukejchang.com/index.html)
+* [Leanne Hirshfield](https://shinelaboratory.com/)
 * [Data 100 - Principles and Techniques of Data Science @ UC Berkeley](http://www.ds100.org/fa19/)
 * [Nilearn: Machine learning for Neuro-Imaging in Python](https://nilearn.github.io/)
+* [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python)
