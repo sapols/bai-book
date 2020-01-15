@@ -48,6 +48,22 @@
     not_numbered: true
 - url: /units/fmri-basics
   title: fMRI Basics
+  sections:
+  - url: /papers/pinel-2007/index
+    title: Paper -  Fast reproducible identification and large-scale databasing of individual functional cognitive networks
+    not_numbered: true
+  - url: /videos/principles-of-fmri/5-basic-mr-physics/index
+    title: Video - Basic MR Physics
+    not_numbered: true
+  - url: /videos/principles-of-fmri/6-image-formation/index
+    title: Video - Image Formation
+    not_numbered: true
+  - url: /videos/principles-of-fmri/8-fmri-signal-and-bold-physiology/index
+    title: Video - fMRI Signal and Bold Physiology
+    not_numbered: true
+  - url: /videos/principles-of-fmri/9-fmri-artifacts-and-noise/index
+    title: Video - fMRI Artifacts and Noise
+    not_numbered: true        
 - url: /units/fmri-analysis
   title: fMRI Analysis
 - url: /units/machine-learning
