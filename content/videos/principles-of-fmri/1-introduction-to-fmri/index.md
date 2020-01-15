@@ -50,20 +50,3 @@ Q. To study activities within a brain area about the size of needle at a sample 
 
 A. TODO
 
-
-
-
-longitudinal relaxation
-
-restoration of net magnetization along the longitudinal direction return to their parrallel state.
-
-parallel to what?
-
-tranverse magnetization
-
-goes down
-
-longitudinal relaxation time, up
-transverse relaxation time, down
-
-
