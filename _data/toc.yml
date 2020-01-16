@@ -63,7 +63,10 @@
     not_numbered: true
   - url: /videos/principles-of-fmri/9-fmri-artifacts-and-noise/index
     title: Video - fMRI Artifacts and Noise
-    not_numbered: true        
+    not_numbered: true
+  - url: /labs/lab-image/index
+    not_numbered: true
+    title: Lab - Visualize Brain Images
 - url: /units/fmri-analysis
   title: fMRI Analysis
 - url: /units/machine-learning

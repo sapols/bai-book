@@ -13,7 +13,7 @@ Q. Does the peak at 5 second indicate the time of the highest neural activity? I
 
 A. TODO
 
-Q. Suppose we choose a TR of 500ms. Roughly at which frame (e.g., 500th, 1000th, 1500th ...etc) may we observe the peak response?
+Q. Suppose we choose a TR of 500ms. Roughly at which frame (e.g., 5th, 10th, 15th ...etc) may we observe the peak response?
 
 A. TODO
 

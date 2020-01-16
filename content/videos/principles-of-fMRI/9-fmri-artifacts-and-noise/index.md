@@ -24,7 +24,7 @@ Q. What could possibly be the largest TR while avoiding aliasing? Why?
 
 A. TODO
 
-## Noice Map
+## Noise Map
 
 ![noise map](noise-map.png)
 
