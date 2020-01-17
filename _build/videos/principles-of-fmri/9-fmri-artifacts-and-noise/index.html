@@ -7,7 +7,7 @@ prev_page:
 next_page:
   url: /labs/lab-image/index.html
 suffix: .md
-search: q todo noise map why drift png aliasing hrf iframe picture not possible tr brain spatial instead video width height src www youtube com embed kkrsgychs frameborder allow accelerometer autoplay encrypted media gyroscope allowfullscreen questions detect signal example given ms avoid sampling shown above possibly largest while avoiding uniform across entire higher closer center
+search: noise q aliasing map drift why ms fastest frequency brain png not signal because hrf tr sampling twice fast instead iframe picture possible avoid sample least largest spatial noisy structure center video width height src www youtube com embed kkrsgychs frameborder allow accelerometer autoplay encrypted media gyroscope allowfullscreen questions detect example louder itself given shown above signals faster ratecalled nyquist frquencywill aliased must here rate therefore occurs possibly while avoiding assuming means longest thats uniform across entire whole uniformly where identify higher closer less able
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -22,17 +22,17 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Video">Video<a class="anchor-link" href="#Video"> </a></h1><iframe width="560" height="315" src="https://www.youtube.com/embed/7Kk_RsGycHs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1 id="Questions">Questions<a class="anchor-link" href="#Questions"> </a></h1><h2 id="Drift">Drift<a class="anchor-link" href="#Drift"> </a></h2><p><img src="drift.png" alt="drift"></p>
 <p>Q. Why is it not possible to detect the signal in this example?</p>
-<p>A. TODO</p>
+<p>A. Because the noise (drift) is "louder" than the signal itself.</p>
 <h2 id="Aliasing">Aliasing<a class="anchor-link" href="#Aliasing"> </a></h2><p><img src="hrf.png" alt="hrf"></p>
 <p>Q. Given a TR of 2000ms, is it possible to avoid aliasing when sampling from the HRF shown above? Why or why not?</p>
-<p>A. TODO</p>
+<p>A. No. Signals faster than 1/2 the sampling rate—called the Nyquist frquency—will be aliased. To avoid aliasing, you must sample at least twice as fast as the fastest frequency in the signal. Here, the fastest frequency is ~2000ms, so the sampling rate is not at least twice as fast as the fastest frequency and therefore aliasing occurs.</p>
 <p>Q. What could possibly be the largest TR while avoiding aliasing? Why?</p>
-<p>A. TODO</p>
+<p>A. Assuming "largest TR" means longest time for each sample, about 1000ms because that's about twice as fast as the fastest frequency (~2000ms).</p>
 <h2 id="Noise-Map">Noise Map<a class="anchor-link" href="#Noise-Map"> </a></h2><p><img src="noise-map.png" alt="noise map"></p>
 <p>Q. If the noise were uniform across the entire brain, what would the spatial map look like instead?</p>
-<p>A. TODO</p>
+<p>A. The whole thing would look uniformly noisy instead of like it is where we can identify brain structure.</p>
 <p>Q. If noise were higher closer to the center of the brain, what would the spatial map look like instead?</p>
-<p>A. TODO</p>
+<p>A. We would be less able to make out the structure of the center of the brain because it would be noisy.</p>
 
 </div>
 </div>
