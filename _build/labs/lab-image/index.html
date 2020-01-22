@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: /units/fmri-analysis.html
 suffix: .ipynb
-search: data x nibabel brain using mask y z slices test case d image add also get visualize neuroimaging python plot stored nifti access dimensions slice try different show location axis code handle load files nii compressed gzip very tool file system nipy org dont already easy pip only need simply either tutorials numpy array matplotlib lets showing slicing yourself feel represented anatomical not techniques part s where tells highlight across below following functionalities e g xyz improve viewing tutorial learn often format gz store both contain structured metadata header nice called installed computer via tell jupyter cell unix outside notebook
+search: data x nibabel brain using mask y z slices test case d image add also get visualize neuroimaging python plot stored nifti access dimensions slice try different show location axis code images handle load files nii compressed gzip very tool file system nipy org dont already easy pip only need simply either tutorials numpy array matplotlib lets showing slicing yourself feel represented anatomical not techniques part s where tells highlight across below following functionalities numbofslices steps e g xyz improve viewing tutorial learn often format gz store both contain structured metadata header nice called installed computer via tell jupyter cell
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -74,8 +74,10 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Requirement already satisfied: nibabel in /Users/tom/opt/anaconda3/lib/python3.7/site-packages (3.0.0)
-Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/python3.7/site-packages (from nibabel) (1.17.2)
+<pre>Requirement already satisfied: nibabel in /anaconda3/lib/python3.6/site-packages (3.0.0)
+Requirement already satisfied: numpy&gt;=1.12 in /anaconda3/lib/python3.6/site-packages (from nibabel) (1.14.2)
+<span class="ansi-yellow-fg">You are using pip version 19.0.3, however version 20.0.1 is available.
+You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
 </pre>
 </div>
 </div>
@@ -278,7 +280,7 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x113d53090&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11a641780&gt;</pre>
 </div>
 
 </div>
@@ -319,7 +321,8 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="mi">10</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span><span class="mi">140</span><span class="p">])</span>
+<span class="c1">#plt.imshow(data.get_fdata()[95,:,:])</span>
 </pre></div>
 
 </div>
@@ -335,7 +338,7 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x1218056d0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11a777f28&gt;</pre>
 </div>
 
 </div>
@@ -419,8 +422,8 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="mi">200</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="mi">200</span><span class="p">],</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">10</span><span class="p">:</span><span class="mi">190</span><span class="p">,</span><span class="mi">50</span><span class="p">:,</span><span class="mi">150</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">10</span><span class="p">:</span><span class="mi">190</span><span class="p">,</span><span class="mi">50</span><span class="p">:,</span><span class="mi">120</span><span class="p">],</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -467,10 +470,10 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 <h1 id="Exercises">Exercises<a class="anchor-link" href="#Exercises"> </a></h1><h2 id="Visualize-slices-across-an-axis">Visualize slices across an axis<a class="anchor-link" href="#Visualize-slices-across-an-axis"> </a></h2><p>The function below contains skeleton code that is hardcoded to show 10 slices of brain images across the x axis, 5 slices apart.</p>
 <p>TODO: Implement the following functionalities</p>
 <ul>
-<li>handle axis = 'y' or 'z', and anywhere from 1 to 30 slices.</li>
-<li>handle numbOfSlices from 1 to 20</li>
-<li>handle steps</li>
-<li>show the value on the plot, e.g., adding a label x=20 on the slice where x=20</li>
+<li>handle axis = 'y' or 'z', and anywhere from 1 to 30 slices. (/)</li>
+<li>handle numbOfSlices from 1 to 20 (numbOfSlices should be the total number of images output) (/)</li>
+<li>handle steps (steps is the space between images) (/)</li>
+<li>show the value on the plot, e.g., adding a label x=20 on the slice where x=20 (/)</li>
 </ul>
 
 </div>
@@ -486,12 +489,29 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO:</span>
-<span class="k">def</span> <span class="nf">ShowSlicesAcrossAxis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">numberOfSlices</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">ShowSlicesAcrossAxis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">numbOfSlices</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">numbOfSlices</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numbOfSlices</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="s1">&#39;x=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">numbOfSlices</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numbOfSlices</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s1">&#39;y=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">numbOfSlices</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numbOfSlices</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s1">&#39;z=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">steps</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -554,10 +574,28 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this should show five brain slices along the z-axis that are 15 slices apart</span>
-<span class="n">ShowSlicesAcrossAxis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this should show 17 brain slices along the z-axis that are 15 slices apart</span>
+<span class="n">ShowSlicesAcrossAxis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 </pre></div>
 
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_26_0.png"
+>
+</div>
+
+</div>
 </div>
 </div>
 </div>
@@ -582,10 +620,28 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this should show two brain slices along the y-axis that are 10 slices apart</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this should show ten brain slices along the y-axis that are 10 slices apart</span>
 <span class="n">ShowSlicesAcrossAxis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_28_0.png"
+>
+</div>
+
+</div>
 </div>
 </div>
 </div>
@@ -602,10 +658,10 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 <p>Your task is to improve this code so that it can generate a visualization like above. The code below provides a partial implemention.</p>
 <p>At very least, you will need to add the following functionalities:</p>
 <ul>
-<li>interpret x, y, z relative to the center of the data (e.g., x=1 -&gt; x=-25 if there are 50 slices along x)</li>
-<li>add labels showing the values of x, y, z</li>
+<li>interpret x, y, z relative to the center of the data (e.g., x=1 -&gt; x=-25 if there are 50 slices along x) (/)</li>
+<li>add labels showing the values of x, y, z (/)</li>
 <li>add crosses</li>
-<li>check for boundaries</li>
+<li>check for boundaries (/)</li>
 </ul>
 
 </div>
@@ -620,12 +676,53 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indexToDistFromCenter</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">lengthOfAxis</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">lengthOfAxis</span><span class="p">)):</span>  <span class="c1"># check for boundaries</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The requested value (</span><span class="si">{}</span><span class="s1">) exceeded the boundary&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">lengthOfAxis</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">distFromCenter</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="n">center</span>
+        <span class="k">return</span> <span class="n">distFromCenter</span>
+        
+<span class="k">def</span> <span class="nf">distFromCenterToIndex</span><span class="p">(</span><span class="n">distFromCenter</span><span class="p">,</span> <span class="n">lengthOfAxis</span><span class="p">):</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">lengthOfAxis</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">distFromCenter</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">lengthOfAxis</span><span class="p">)):</span>  <span class="c1"># check for boundaries</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The requested value (</span><span class="si">{}</span><span class="s1">) exceeded the boundary&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distFromCenter</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">index</span>
+
+<span class="c1"># x, y, and z are input relative to the center (i.e. not the values you&#39;d use to index into the data)</span>
+<span class="k">def</span> <span class="nf">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">yLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">zLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="n">xIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">xLength</span><span class="p">)</span> 
+    <span class="n">yIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yLength</span><span class="p">)</span>
+    <span class="n">zIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">zLength</span><span class="p">)</span>
+    
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>    
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">50</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="mi">50</span><span class="p">,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">xIndex</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">zIndex</span><span class="p">,</span><span class="n">zIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">yLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">zLength</span><span class="p">],[</span><span class="n">yIndex</span><span class="p">,</span><span class="n">yIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">245</span><span class="p">,</span> <span class="s1">&#39;x=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="n">yIndex</span><span class="p">,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">zIndex</span><span class="p">,</span><span class="n">zIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">xLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">zLength</span><span class="p">],[</span><span class="n">xIndex</span><span class="p">,</span><span class="n">xIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="s1">&#39;y=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="n">zIndex</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">yIndex</span><span class="p">,</span><span class="n">yIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">xLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">yLength</span><span class="p">],[</span><span class="n">xIndex</span><span class="p">,</span><span class="n">xIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="s1">&#39;z=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -653,7 +750,7 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -744,12 +841,56 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ShowLocationWithMask</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>    
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">50</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="mi">50</span><span class="p">,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indexToDistFromCenter</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">lengthOfAxis</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">lengthOfAxis</span><span class="p">)):</span>  <span class="c1"># check for boundaries</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The requested value (</span><span class="si">{}</span><span class="s1">) exceeded the boundary&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">lengthOfAxis</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">distFromCenter</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="n">center</span>
+        <span class="k">return</span> <span class="n">distFromCenter</span>
+        
+<span class="k">def</span> <span class="nf">distFromCenterToIndex</span><span class="p">(</span><span class="n">distFromCenter</span><span class="p">,</span> <span class="n">lengthOfAxis</span><span class="p">):</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">lengthOfAxis</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">distFromCenter</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">lengthOfAxis</span><span class="p">)):</span>  <span class="c1"># check for boundaries</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The requested value (</span><span class="si">{}</span><span class="s1">) exceeded the boundary&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distFromCenter</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">index</span>
+
+
+<span class="k">def</span> <span class="nf">ShowLocationWithMask</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">yLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">zLength</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="n">xIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">xLength</span><span class="p">)</span> 
+    <span class="n">yIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yLength</span><span class="p">)</span>
+    <span class="n">zIndex</span> <span class="o">=</span> <span class="n">distFromCenterToIndex</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">zLength</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">xIndex</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">xIndex</span><span class="p">,:,:],</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">zIndex</span><span class="p">,</span><span class="n">zIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">yLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">zLength</span><span class="p">],[</span><span class="n">yIndex</span><span class="p">,</span><span class="n">yIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">245</span><span class="p">,</span> <span class="s1">&#39;x=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="n">yIndex</span><span class="p">,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,</span><span class="n">yIndex</span><span class="p">,:],</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">zIndex</span><span class="p">,</span><span class="n">zIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">xLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">zLength</span><span class="p">],[</span><span class="n">xIndex</span><span class="p">,</span><span class="n">xIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="s1">&#39;y=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="n">zIndex</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[:,:,</span><span class="n">zIndex</span><span class="p">],</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">yIndex</span><span class="p">,</span><span class="n">yIndex</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">xLength</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">yLength</span><span class="p">],[</span><span class="n">xIndex</span><span class="p">,</span><span class="n">xIndex</span><span class="p">],</span><span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="s1">&#39;z=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -822,7 +963,7 @@ Requirement already satisfied: numpy&gt;=1.12 in /Users/tom/opt/anaconda3/lib/py
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocationWithMask</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocationWithMask</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
 </pre></div>
 
 </div>
