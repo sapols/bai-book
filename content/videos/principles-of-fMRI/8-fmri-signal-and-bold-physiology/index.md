@@ -11,7 +11,7 @@
 
 Q. Does the peak at 5 second indicate the time of the highest neural activity? If so, how? If not, why not?
 
-A. Probably, because BOLD signals usually (but not always) correlate with neural activity.
+A. No, because peak BOLD signals follow neural activity after a delay of 4-6 seconds, meaning the peak activity happened about 1 second into this graph. Also, BOLD signals only usually (not always) correlate with neural activity.
 
 Q. Suppose we choose a TR of 500ms. Roughly at which frame (e.g., 5th, 10th, 15th ...etc) may we observe the peak response?
 
