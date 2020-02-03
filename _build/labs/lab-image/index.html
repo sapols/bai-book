@@ -9,7 +9,7 @@ pagenum: 16
 prev_page:
   url: /videos/principles-of-fmri/9-fmri-artifacts-and-noise/index.html
 next_page:
-  url: /units/fmri-analysis.html
+  url: /labs/lab-signal-processing/index.html
 suffix: .ipynb
 search: data x nibabel brain using mask y z slices test case d image add also get visualize neuroimaging python plot stored nifti access dimensions slice try different show location axis code images handle load files nii compressed gzip very tool file system nipy org dont already easy pip only need simply either tutorials numpy array matplotlib lets showing slicing yourself feel represented anatomical not techniques part s where tells highlight across below following functionalities numbofslices steps e g xyz improve viewing tutorial learn often format gz store both contain structured metadata header nice called installed computer via tell jupyter cell
 
@@ -76,7 +76,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Requirement already satisfied: nibabel in /anaconda3/lib/python3.6/site-packages (3.0.0)
 Requirement already satisfied: numpy&gt;=1.12 in /anaconda3/lib/python3.6/site-packages (from nibabel) (1.14.2)
-<span class="ansi-yellow-fg">You are using pip version 19.0.3, however version 20.0.1 is available.
+<span class="ansi-yellow-fg">You are using pip version 19.0.3, however version 20.0.2 is available.
 You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
 </pre>
 </div>
@@ -108,6 +108,8 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -280,7 +282,7 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x11a641780&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x1113dc208&gt;</pre>
 </div>
 
 </div>
@@ -338,7 +340,7 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x11a777f28&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11150e278&gt;</pre>
 </div>
 
 </div>
@@ -984,6 +986,343 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
 </div>
 
 </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numVoxels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numVoxels</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1244267.0
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plotBrainVoxels</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+        <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+        <span class="n">brain_counts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="n">zslice</span> <span class="o">=</span> <span class="n">mask_np</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">brain_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zslice</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotBrainVoxels</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_43_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plotBrainVoxelsInAxis</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+        <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+        <span class="n">brain_counts</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+        <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+        <span class="n">brain_counts</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span>
+        <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+        <span class="n">brain_counts</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X:&quot;</span><span class="p">)</span>
+<span class="n">plotBrainVoxelsInAxis</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y:&quot;</span><span class="p">)</span>
+<span class="n">plotBrainVoxelsInAxis</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Z:&quot;</span><span class="p">)</span>
+<span class="n">plotBrainVoxelsInAxis</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>X:
+Y:
+Z:
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_44_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+        <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+        <span class="n">brain_counts</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">brain_counts</span>
+        <span class="n">startOfBrain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">endOfBrain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">brain_counts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="c1"># syntax error</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">brain_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">brain_counts</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">startOfBrain</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">brain_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">brain_counts</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">endOfBrain</span> <span class="o">=</span> <span class="n">i</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="n">startOfBrain</span><span class="p">:</span><span class="n">endOfBrain</span><span class="p">,:,:],</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+        
+<span class="n">crop</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-36-a1a96a5529de&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>         plt<span class="ansi-blue-fg">.</span>imshow<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>get_fdata<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span>startOfBrain<span class="ansi-blue-fg">:</span>endOfBrain<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;gray&#39;</span><span class="ansi-blue-fg">,</span> interpolation<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;none&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span> 
+<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span>crop<span class="ansi-blue-fg">(</span>mask<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;x&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-36-a1a96a5529de&gt;</span> in <span class="ansi-cyan-fg">crop</span><span class="ansi-blue-fg">(mask, axis)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span>                 endOfBrain <span class="ansi-blue-fg">=</span> i
+<span class="ansi-green-intense-fg ansi-bold">     14</span> 
+<span class="ansi-green-fg">---&gt; 15</span><span class="ansi-red-fg">         </span>plt<span class="ansi-blue-fg">.</span>imshow<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">.</span>get_fdata<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span>startOfBrain<span class="ansi-blue-fg">:</span>endOfBrain<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;gray&#39;</span><span class="ansi-blue-fg">,</span> interpolation<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;none&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span> 
+<span class="ansi-green-intense-fg ansi-bold">     17</span> crop<span class="ansi-blue-fg">(</span>mask<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;x&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/anaconda3/lib/python3.6/site-packages/matplotlib/pyplot.py</span> in <span class="ansi-cyan-fg">imshow</span><span class="ansi-blue-fg">(X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, shape, filternorm, filterrad, imlim, resample, url, hold, data, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3203</span>                         filternorm<span class="ansi-blue-fg">=</span>filternorm<span class="ansi-blue-fg">,</span> filterrad<span class="ansi-blue-fg">=</span>filterrad<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   3204</span>                         imlim<span class="ansi-blue-fg">=</span>imlim<span class="ansi-blue-fg">,</span> resample<span class="ansi-blue-fg">=</span>resample<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">=</span>data<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 3205</span><span class="ansi-red-fg">                         **kwargs)
+</span><span class="ansi-green-intense-fg ansi-bold">   3206</span>     <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   3207</span>         ax<span class="ansi-blue-fg">.</span>_hold <span class="ansi-blue-fg">=</span> washold
+
+<span class="ansi-green-fg">/anaconda3/lib/python3.6/site-packages/matplotlib/__init__.py</span> in <span class="ansi-cyan-fg">inner</span><span class="ansi-blue-fg">(ax, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1853</span>                         <span class="ansi-blue-fg">&#34;the Matplotlib list!)&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>label_namer<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">.</span>__name__<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1854</span>                         RuntimeWarning, stacklevel=2)
+<span class="ansi-green-fg">-&gt; 1855</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> func<span class="ansi-blue-fg">(</span>ax<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1856</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1857</span>         inner.__doc__ = _add_data_doc(inner.__doc__,
+
+<span class="ansi-green-fg">/anaconda3/lib/python3.6/site-packages/matplotlib/axes/_axes.py</span> in <span class="ansi-cyan-fg">imshow</span><span class="ansi-blue-fg">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, shape, filternorm, filterrad, imlim, resample, url, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5485</span>                               resample=resample, **kwargs)
+<span class="ansi-green-intense-fg ansi-bold">   5486</span> 
+<span class="ansi-green-fg">-&gt; 5487</span><span class="ansi-red-fg">         </span>im<span class="ansi-blue-fg">.</span>set_data<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5488</span>         im<span class="ansi-blue-fg">.</span>set_alpha<span class="ansi-blue-fg">(</span>alpha<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5489</span>         <span class="ansi-green-fg">if</span> im<span class="ansi-blue-fg">.</span>get_clip_path<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/anaconda3/lib/python3.6/site-packages/matplotlib/image.py</span> in <span class="ansi-cyan-fg">set_data</span><span class="ansi-blue-fg">(self, A)</span>
+<span class="ansi-green-intense-fg ansi-bold">    651</span>         if not (self._A.ndim == 2
+<span class="ansi-green-intense-fg ansi-bold">    652</span>                 or self._A.ndim == 3 and self._A.shape[-1] in [3, 4]):
+<span class="ansi-green-fg">--&gt; 653</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> TypeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Invalid dimensions for image data&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    654</span> 
+<span class="ansi-green-intense-fg ansi-bold">    655</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_A<span class="ansi-blue-fg">.</span>ndim <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: Invalid dimensions for image data</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_45_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">resampledGradient</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts_x</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_y</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_z</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">x_resampled</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_x</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_y</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    <span class="n">z_resampled</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_z</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    
+    <span class="n">x_gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">x_resampled</span><span class="p">)</span><span class="c1">#np.gradient(brain_counts_x,5)</span>
+    <span class="n">y_gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="c1">#np.gradient(brain_counts_y,5)</span>
+    <span class="n">z_gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">z_resampled</span><span class="p">)</span><span class="c1">#np.gradient(brain_counts_z,5)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_gradient</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_gradient</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_gradient</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;z gradient&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    
+<span class="n">resampledGradient</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_46_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getMassOfLeftHemisphere</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+    
+    
+<span class="n">getMassOfLeftHemisphere</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+
 </div>
 </div>
 </div>
