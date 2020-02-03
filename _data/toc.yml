@@ -67,6 +67,9 @@
   - url: /labs/lab-image/index
     not_numbered: true
     title: Lab - Visualize Brain Images
+  - url: /labs/lab-signal-processing/index
+    not_numbered: true
+    title: Lab - Signal Processing
 - url: /units/fmri-analysis
   title: fMRI Analysis
 - url: /units/machine-learning
