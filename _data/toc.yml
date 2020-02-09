@@ -70,6 +70,9 @@
   - url: /labs/lab-signal-processing/index
     not_numbered: true
     title: Lab - Signal Processing
+  - url: /labs/lab-frequency-domain/index
+    not_numbered: true
+    title: Lab - Frequency Domain
 - url: /units/fmri-analysis
   title: fMRI Analysis
 - url: /units/machine-learning
