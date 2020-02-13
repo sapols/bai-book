@@ -259,7 +259,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
     
 <span class="c1"># TEST 1</span>
 
-<span class="n">select_greater_than_10</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="n">select_greater_than_10</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span>
 <span class="n">signal</span> <span class="o">=</span> <span class="n">generate_signal_with_selector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">select_greater_than_10</span><span class="p">)</span>
 <span class="n">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 
@@ -1272,13 +1272,13 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
  
  
-<div id="3eafa538-2d7e-427b-9c2b-25b2cd621ba0"></div>
+<div id="2446f9ca-e753-44ea-bde5-fc1bf7a37e8b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
+var element = $('#2446f9ca-e753-44ea-bde5-fc1bf7a37e8b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "066c4de55bcc4d3cb4f3628f41a1b144", "version_major": 2, "version_minor": 0}
+{"model_id": "2025f42956894efcba365421aeee8772", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -1414,7 +1414,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x1226ef278&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x128faf2e8&gt;</pre>
 </div>
 
 </div>
@@ -1484,7 +1484,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x12322ad68&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x128f05828&gt;</pre>
 </div>
 
 </div>
@@ -1560,7 +1560,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x123cd7940&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x11a4edbe0&gt;</pre>
 </div>
 
 </div>
@@ -1683,7 +1683,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x122155400&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x10ea46cc0&gt;</pre>
 </div>
 
 </div>
@@ -1756,7 +1756,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x11e6541d0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x11a55af98&gt;</pre>
 </div>
 
 </div>
@@ -1802,7 +1802,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 <span class="n">lowcut</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">highcut</span> <span class="o">=</span> <span class="mi">13</span>
 
-<span class="n">selected</span> <span class="o">=</span> <span class="n">generate_signal_with_selector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">highcut</span><span class="p">)</span> <span class="c1"># TODO: add lowcut filter too</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="n">generate_signal_with_selector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1830,7 +1830,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x12642ba20&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x11a5c9908&gt;</pre>
 </div>
 
 </div>
@@ -1905,7 +1905,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x126833a58&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x129687c18&gt;</pre>
 </div>
 
 </div>
@@ -1963,7 +1963,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 <span class="n">lowcut</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">highcut</span> <span class="o">=</span> <span class="mi">12</span>
 
-<span class="n">selected</span> <span class="o">=</span> <span class="n">generate_signal_with_selector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">highcut</span><span class="p">)</span> <span class="c1"># TODO: add lowcut filter too</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="n">generate_signal_with_selector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">))</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1991,7 +1991,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x12684f240&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x129d26978&gt;</pre>
 </div>
 
 </div>
@@ -2054,7 +2054,7 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x126861c50&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x10ee97080&gt;]</pre>
 </div>
 
 </div>
@@ -2097,8 +2097,385 @@ var element = $('#3eafa538-2d7e-427b-9c2b-25b2cd621ba0');
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
 
+<span class="c1">## NOTE: Shawn didn&#39;t get this so we discussed it in class. Thank you Jack for leading that explanation. </span>
+<span class="c1">##       There were two bad frequencies, with good ones inbetween them, so we use a bandpass filter</span>
+<span class="c1">##       to only keep the good frequencies inbetween the two bad ones.</span>
+<span class="n">fourier_fft_good</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">good</span><span class="p">)</span>
+<span class="n">fourier_fft_bad</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">bad</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fourier_fft_good</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fourier_fft_good</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))]),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fourier_fft_bad</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fourier_fft_bad</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))]),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Good&#39;</span><span class="p">,</span><span class="s1">&#39;Bad&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 
 <span class="c1">### END SOLUTION</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.legend.Legend at 0x129fee080&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_64_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BANDPASS FILTER</span>
+<span class="n">filter_order</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">lowcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">highcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">95</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Create the filter</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="p">[</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">],</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_frequency</span><span class="p">)</span>
+
+<span class="c1"># Apply the filter</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">bad</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bad</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Original&#39;</span><span class="p">,</span><span class="s1">&#39;Filtered&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.legend.Legend at 0x12a6b4e48&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_65_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># JACK&#39;S SECRET SIGNALS</span>
+<span class="n">mystery</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;mystery.npy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mystery</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x12aa654a8&gt;]</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_66_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fourier_fft_mystery</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">mystery</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1">#plt.plot(np.abs(fourier_fft_mystery[0:int(np.ceil(len(fourier_fft_mystery)/2))]), linewidth=1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fourier_fft_mystery</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">130</span><span class="p">]),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x129219668&gt;]</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_67_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## BANDPASS</span>
+
+<span class="n">filter_order</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">lowcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="c1">#3</span>
+<span class="n">highcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">110</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="c1">#56</span>
+
+<span class="c1"># Create the filter</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="p">[</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">],</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_frequency</span><span class="p">)</span>
+
+<span class="c1"># Apply the filter</span>
+<span class="n">filtered_mystery</span> <span class="o">=</span> <span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">mystery</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mystery</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_mystery</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Original&#39;</span><span class="p">,</span><span class="s1">&#39;Filtered&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.legend.Legend at 0x12ba18f98&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_68_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## BANDSTOP</span>
+
+<span class="n">filter_order</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">lowcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">highcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">21</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Create the filter</span>
+<span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="p">[</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">],</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandstop&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_frequency</span><span class="p">)</span>
+
+<span class="c1"># # Plot the filter</span>
+<span class="c1"># plot_filter(b, a, filtered_mystery)</span>
+
+<span class="c1"># Apply the filter</span>
+<span class="n">filtered_mystery</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## BANDSTOP</span>
+
+<span class="n">filter_order</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">lowcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">highcut</span> <span class="o">=</span> <span class="p">(</span><span class="mi">21</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Create the filter</span>
+<span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="p">[</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">],</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;bandstop&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sampling_frequency</span><span class="p">)</span>
+
+<span class="c1"># # Plot the filter</span>
+<span class="c1"># plot_filter(b, a, filtered_mystery)</span>
+
+<span class="c1"># Apply the filter</span>
+<span class="n">filtered_mystery_2</span> <span class="o">=</span> <span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">filtered_mystery</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mystery</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_mystery_2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Original&#39;</span><span class="p">,</span><span class="s1">&#39;filtered_mystery_2&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.legend.Legend at 0x12c28ce10&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-frequency-domain/index_70_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># WOOO!</span>
 </pre></div>
 
 </div>
